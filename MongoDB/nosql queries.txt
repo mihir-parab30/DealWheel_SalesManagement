@@ -1,0 +1,96 @@
+
+// Find Insurance Details for Vehicles with "Collision Cover"
+db.insurance.find({ ins_type: "collision cover" }) 
+
+//1) Find all vehicles with a fuel type of 'Hybrid' or 'Electric' that have a price greater than 100,000, and sort the results in descending order of price."
+db.vehicle.find(
+  {
+    fuel_type: { $in: ["Hybrid", "Electric"] }, 
+    v_price: { $gt: 100000 }                  
+  },
+  {
+    _id: 0,                
+    v_make: 1,           
+    v_model: 1,            
+    v_price: 1,           
+    fuel_type: 1           
+  }
+).sort({ v_price: -1 });   
+
+
+//2)Retrieve the details of vehicles sold by the branch with branch_id = 29, including their vehicle_id and all associated vehicle information, using MongoDB's aggregation pipeline
+
+
+db.salesorder.aggregate([
+  {
+    $match: { branch_id: 29 }
+  },
+  {
+    $lookup: {
+      from: "vehicle", // Replace with the actual collection name storing vehicle details
+      localField: "vehicle_id",
+      foreignField: "vehicle_id",
+      as: "vehicle_details"
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      vehicle_id: 1,
+      vehicle_details: 1
+    }
+  }
+])
+
+
+
+
+//3)Find reservations with Booked status for customers older than 40
+
+db.reservation.aggregate([
+  {
+    $lookup: {
+      from: "customer",
+      localField: "customer_id",
+      foreignField: "customer_id",
+      as: "customer_info"
+    }
+  },
+  { $unwind: "$customer_info" },
+  {
+    $match: {
+      reservation_status: "Booked",
+      "customer_info.c_age": { $gt: 40 }
+    }
+  }
+])
+
+
+
+
+//4)Find all vehicles that have completed services.
+db.services.aggregate([
+  {
+    $match: { sv_status: "Completed" }
+  },
+  {
+    $lookup: {
+      from: "vehicle",
+      localField: "vehicle_id",
+      foreignField: "vehicle_id",
+      as: "vehicle_details"
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      sv_id: 1,
+      sv_status: 1,
+      vehicle_details: 1
+    }
+  }
+])
+
+
+
+
