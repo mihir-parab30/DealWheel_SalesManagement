@@ -33,10 +33,10 @@ This project, Deal Wheel: A Vehicle Sales Management System, aims to simulate th
 ## 📊 Database Design
 
 ### 🗺️ EER Diagram
-![EER Diagram](assets/EER Diagram.jpg)
+![EER Diagram](EER_UML_Diagram/EER_Diagram.jpg)
 
 ### 🧩 UML Class Diagram
-![UML Diagram](assets/UML Diagram.jpg)
+![UML Diagram](EER_UML_Diagram/UML_Diagram.jpg)
 
 ---
 
