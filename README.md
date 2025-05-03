@@ -6,7 +6,7 @@ A full-stack database project simulating the business logic of a vehicle dealers
 
 ## 📄 Abstract
 
-This project, Deal Wheel: A Vehicle Sales Management System, aims to simulate the end-to-end backend of a vehicle dealership, managing customer reservations, vehicle inventory, sales processing, payment methods (cash or loan), insurance, and branch operations. The system is implemented in both relational and non-relational paradigms, demonstrating the structural rigor of SQL and the schema flexibility of NoSQL. The project encompasses data modeling (via EER and UML diagrams), schema implementation in MySQL, and document-based modeling in MongoDB, showcasing proficiency in handling structured and semi-structured data efficiently. The application enables insightful querying for business KPIs such as average vehicle price, top-performing salespersons, and customer service usage.
+**This project, Deal Wheel: A Vehicle Sales Management System, aims to simulate the end-to-end backend of a vehicle dealership, managing customer reservations, vehicle inventory, sales processing, payment methods (cash or loan), insurance, and branch operations. The system is implemented in both relational and non-relational paradigms, demonstrating the structural rigor of SQL and the schema flexibility of NoSQL. The project encompasses data modeling (via EER and UML diagrams), schema implementation in MySQL, and document-based modeling in MongoDB, showcasing proficiency in handling structured and semi-structured data efficiently. The application enables insightful querying for business KPIs such as average vehicle price, top-performing salespersons, and customer service usage.** 
 ---
 
 ## 📌 Project Features
